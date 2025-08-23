@@ -1,4 +1,4 @@
-baseURL = 'https://blog.lumetsberger.com/'
+baseURL = 'https://lumetsberger.com/'
 languageCode = 'en-us'
 title = 'Moritz Lumetsberger'
 theme = 'PaperMod'
