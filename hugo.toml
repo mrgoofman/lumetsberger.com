@@ -6,10 +6,10 @@ theme = 'PaperMod'
 [params]
 env = "production"
 title = "Moritz Lumetsberger"
-description = "Personal blog and homepage"
-keywords = [  ]
+description = "Entrepreneur who loves starting things and exploring bold ideas. Co-founder of rendersnek (3D animation studio) and FOOH.com (largest FOOH & CGI archive). Expert in AI automation, creative workflows, and vibecoding."
+keywords = [ "Moritz Lumetsberger", "entrepreneur", "3D animation", "FOOH", "DOOH", "rendersnek", "creative technologist", "AI automation", "vibecoding", "startup founder", "digital entrepreneurship" ]
 author = "Moritz Lumetsberger"
-images = [""]
+images = ["/content/moritz-lumetsberger-2.jpg"]
 DateFormat = "January 2, 2006"
 defaultTheme = "auto"
 disableThemeToggle = false
@@ -31,23 +31,23 @@ showtoc = false
 tocopen = false
 
 [params.homeInfoParams]
-Title = "Hi there 👋"
-Content = "Welcome to my personal blog and homepage"
+Title = "I'm Moritz – Entrepreneur."
+Content = "Entrepreneur who loves starting things and exploring bold ideas. Co-founder of rendersnek (3D animation studio) and FOOH.com (largest FOOH & CGI archive). Expert in AI automation, creative workflows, and vibecoding."
+
+[[params.socialIcons]]
+name = "linkedin"
+url = "https://www.linkedin.com/in/moritz-lumetsberger/"
 
 [[params.socialIcons]]
 name = "twitter"
-url = "https://twitter.com/"
-
-[[params.socialIcons]]
-name = "github"
-url = "https://github.com/"
+url = "https://x.com/mo_snek"
 
 [params.assets]
-favicon = ""
-favicon16x16 = ""
-favicon32x32 = ""
-apple_touch_icon = ""
-safari_pinned_tab = ""
+favicon = "/content/icon.jpg"
+favicon16x16 = "/content/icon.jpg"
+favicon32x32 = "/content/icon.jpg"
+apple_touch_icon = "/content/icon.jpg"
+safari_pinned_tab = "/content/icon.jpg"
 
 [params.label]
 text = "Home"
@@ -89,9 +89,9 @@ url = "/"
 weight = 10
 
 [[menu.main]]
-identifier = "posts"
-name = "Posts"
-url = "/posts/"
+identifier = "blog"
+name = "Blog"
+url = "/blog/"
 weight = 20
 
 [[menu.main]]
