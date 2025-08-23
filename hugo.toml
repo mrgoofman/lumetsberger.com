@@ -1,0 +1,101 @@
+baseURL = 'https://lumetsberger.com/'
+languageCode = 'en-us'
+title = 'Moritz Lumetsberger'
+theme = 'PaperMod'
+
+[params]
+env = "production"
+title = "Moritz Lumetsberger"
+description = "Personal blog and homepage"
+keywords = [  ]
+author = "Moritz Lumetsberger"
+images = [""]
+DateFormat = "January 2, 2006"
+defaultTheme = "auto"
+disableThemeToggle = false
+
+ShowReadingTime = true
+ShowShareButtons = true
+ShowPostNavLinks = true
+ShowBreadCrumbs = true
+ShowCodeCopyButtons = true
+ShowWordCount = true
+ShowRssButtonInSectionTermList = true
+UseHugoToc = true
+disableSpecial1stPost = false
+disableScrollToTop = false
+comments = false
+hidemeta = false
+hideSummary = false
+showtoc = false
+tocopen = false
+
+[params.homeInfoParams]
+Title = "Hi there 👋"
+Content = "Welcome to my personal blog and homepage"
+
+[[params.socialIcons]]
+name = "twitter"
+url = "https://twitter.com/"
+
+[[params.socialIcons]]
+name = "github"
+url = "https://github.com/"
+
+[params.assets]
+favicon = ""
+favicon16x16 = ""
+favicon32x32 = ""
+apple_touch_icon = ""
+safari_pinned_tab = ""
+
+[params.label]
+text = "Home"
+icon = ""
+iconHeight = 35
+
+[params.analytics.google]
+SiteVerificationTag = ""
+
+[params.analytics.bing]
+SiteVerificationTag = ""
+
+[params.analytics.yandex]
+SiteVerificationTag = ""
+
+[params.cover]
+hidden = true
+hiddenInList = true
+hiddenInSingle = true
+
+[params.editPost]
+URL = ""
+Text = ""
+appendFilePath = true
+
+[params.fuseOpts]
+isCaseSensitive = false
+shouldSort = true
+location = 0
+distance = 1000
+threshold = 0.4
+minMatchCharLength = 0
+keys = [ "title", "permalink", "summary", "content" ]
+
+[[menu.main]]
+identifier = "home"
+name = "Home"
+url = "/"
+weight = 10
+
+[[menu.main]]
+identifier = "posts"
+name = "Posts"
+url = "/posts/"
+weight = 20
+
+[[menu.main]]
+identifier = "about"
+name = "About"
+url = "/about/"
+weight = 30
