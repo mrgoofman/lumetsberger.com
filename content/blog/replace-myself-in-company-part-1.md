@@ -1,8 +1,20 @@
 ---
 title: "How to Replace Myself in My Company – Part 1: Building a Task Tracking System for Better Delegation"
-date: "2025-08-22"
+description: "How I'm building a simple app to track and categorize my daily business tasks, so I can finally delegate operations and focus on growing the company instead of drowning in endless operational work."
+slug: replace-myself-in-company-part-1
+date: 2025-08-22
+image: /content/blog/task-logger-popup-1.png
+categories:
+    - Business
+    - Entrepreneurship
+    - Productivity
+tags:
+    - Delegation
+    - Productivity
+    - Vibecoding
+    - Side Projects
+    - Business Automation
 draft: false
-summary: "How I'm building a simple app to track and categorize my daily business tasks, so I can finally delegate operations and focus on growing the company instead of drowning in endless operational work."
 ---
 
 # How to Replace Myself in My Company – Part 1

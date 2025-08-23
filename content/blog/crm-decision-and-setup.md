@@ -1,8 +1,18 @@
 ---
 title: "Deciding on a CRM and Actually Setting It Up (Founder POV)"
-date: "2025-07-11"
+description: "When a company grows and you're suddenly responsible for everything, at some point you'll hit a wall. Here's how I chose and set up our CRM system using ChatGPT as my consultant."
+slug: crm-decision-and-setup
+date: 2025-07-11
+image: /content/blog/task-logger-analytics.png
+categories:
+    - Business
+    - Entrepreneurship
+tags:
+    - CRM
+    - ChatGPT
+    - Business Tools
+    - Automation
 draft: false
-summary: "When a company grows and you're suddenly responsible for everything, at some point you'll hit a wall. Here's how I chose and set up our CRM system using ChatGPT as my consultant."
 ---
 
 # Deciding on a CRM and Actually Setting It Up (Founder POV)

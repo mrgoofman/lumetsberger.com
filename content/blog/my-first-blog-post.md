@@ -1,8 +1,18 @@
 ---
 title: "My Very First Personal Blog Post"
-date: "2025-01-15"
+description: "I'm late to the blogging party, but I'm here now. Thoughts on entrepreneurship, AI, and connecting with like-minded builders who want to create something cool together."
+slug: my-first-blog-post
+date: 2025-01-15
+image: /content/moritz-lumetsberger-2.jpg
+categories:
+    - Personal
+    - Entrepreneurship
+tags:
+    - First Post
+    - Entrepreneurship
+    - AI
+    - Networking
 draft: false
-summary: "I'm late to the blogging party, but I'm here now. Thoughts on entrepreneurship, AI, and connecting with like-minded builders who want to create something cool together."
 ---
 
 # Here Goes: My Very First Personal Blog Post
