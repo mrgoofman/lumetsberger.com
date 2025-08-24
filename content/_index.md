@@ -4,14 +4,20 @@ date = '2025-08-24T09:23:38-03:00'
 draft = false
 +++
 
-# Welcome to My Personal Website
+# I'm Moritz – Entrepreneur, Builder, Vibecoder
 
-I'm Moritz Lumetsberger, a passionate professional sharing insights through my blog and showcasing my work.
+![Moritz Lumetsberger](/images/profiles/moritz-lumetsberger-2.jpg)
 
-## About Me
+I'm an entrepreneur who loves starting things and exploring bold ideas. Co-founder of [rendersnek](https://rendersnek.com) (3D animation studio) and [FOOH.com](https://FOOH.com) (largest FOOH & CGI archive).
 
-I enjoy exploring new technologies, sharing knowledge, and connecting with like-minded individuals in the tech community.
+When I'm not building, I'm experimenting—vibecoding with AI tools, automating creative workflows, or sharing what I've learned.
 
-## Latest Posts
+---
 
-Check out my [blog](/blog/) for my latest thoughts and insights.
+## Recent Thoughts
+
+Check out my [blog](/blog/) where I share insights on entrepreneurship, AI automation, and building better systems.
+
+## Learn More
+
+Want to know more about my work and background? Visit my [about page](/about/) for the full story, or [let's connect](https://cal.com/rendersnek/ideas-side-projects) if you're interested in collaborating on something cool.
