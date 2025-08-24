@@ -21,9 +21,9 @@ theme = 'PaperMod'
     url = "https://linkedin.com/in/lumetsberger"
   
   [[params.socialIcons]]
-    name = "github"
-    title = "GitHub"  
-    url = "https://github.com/mrgoofman"
+    name = "x"
+    title = "X"  
+    url = "https://x.com/mo_snek"
   
   [[params.socialIcons]]
     name = "email"
