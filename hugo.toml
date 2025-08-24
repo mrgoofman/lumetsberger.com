@@ -3,136 +3,59 @@ languageCode = 'en-us'
 title = 'Moritz Lumetsberger'
 theme = 'PaperMod'
 
-enableRobotsTXT = true
-buildDrafts = false
-buildFuture = false
-buildExpired = false
-googleAnalytics = 'G-7WZS5M1WY6'
-
-[minify]
-disableXML = true
-minifyOutput = true
-
 [params]
-env = "production"
-title = "Moritz Lumetsberger"
-description = "Entrepreneur who loves starting things and exploring bold ideas. Co-founder of rendersnek (3D animation studio) and FOOH.com (largest FOOH & CGI archive)."
-keywords = [
-    "Moritz Lumetsberger",
-    "entrepreneur", 
-    "3D animation",
-    "FOOH",
-    "DOOH", 
-    "rendersnek",
-    "creative technologist",
-    "AI automation",
-    "vibecoding",
-    "startup founder"
-]
-author = "Moritz Lumetsberger"
-images = ["https://lumetsberger.com/content/moritz-lumetsberger-2.jpg"]
-DateFormat = "January 2, 2006"
-defaultTheme = "light"
-disableThemeToggle = false
+  # Site info
+  description = "Personal website and blog of Moritz Lumetsberger"
+  author = "Moritz Lumetsberger"
+  
+  # Profile mode configuration
+  [params.profileMode]
+    enabled = true
+    title = "Moritz Lumetsberger"
+    subtitle = "Personal website and blog"
+  
+  # Social links
+  [[params.socialIcons]]
+    name = "linkedin"
+    title = "LinkedIn"
+    url = "https://linkedin.com/in/lumetsberger"
+  
+  [[params.socialIcons]]
+    name = "github"
+    title = "GitHub"  
+    url = "https://github.com/mrgoofman"
+  
+  [[params.socialIcons]]
+    name = "email"
+    title = "Email"
+    url = "mailto:moritz@lumetsberger.com"
 
-ShowReadingTime = true
-ShowShareButtons = true
-ShowPostNavLinks = true
-ShowBreadCrumbs = false
-ShowCodeCopyButtons = true
-ShowWordCount = false
-ShowRssButtonInSectionTermList = false
-UseHugoToc = true
-disableSpecial1stPost = false
-disableScrollToTop = false
-comments = false
-hidemeta = false
-hideSummary = false
-showtoc = true
-tocopen = false
+# Menu configuration
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 10
+  
+  [[menu.main]]
+    identifier = "about" 
+    name = "About"
+    url = "/about/"
+    weight = 20
+  
+  [[menu.main]]
+    identifier = "blog"
+    name = "Blog"
+    url = "/blog/"
+    weight = 30
 
-[params.homeInfoParams]
-Title = "Hi, I'm Moritz 👋"
-Content = """
-**Entrepreneur • Creative Doer • Vibecoder**
-
-I co-founded [rendersnek](https://rendersnek.com), a 3D animation studio creating FOOH content for global brands, and launched [FOOH.com](https://FOOH.com), the largest archive of commercial Fake Out Of Home campaigns.
-
-When I'm not building companies, I'm experimenting with AI tools, automating creative workflows, or sharing insights through my blog and talks.
-"""
-
-[[params.socialIcons]]
-name = "linkedin"
-url = "https://www.linkedin.com/in/moritz-lumetsberger/"
-
-[[params.socialIcons]]
-name = "twitter"
-url = "https://x.com/mo_snek"
-
-[[params.socialIcons]]
-name = "email"
-url = "mailto:moritz@lumetsberger.com"
-
-[params.assets]
-favicon = "/content/icon.jpg"
-favicon16x16 = "/content/icon.jpg"
-favicon32x32 = "/content/icon.jpg"
-apple_touch_icon = "/content/icon.jpg"
-
-[params.label]
-text = "Home"
-icon = "/content/icon.jpg"
-iconHeight = 35
-
-[params.analytics.google]
-SiteVerificationTag = ""
-
-[params.cover]
-hidden = true
-hiddenInList = true
-hiddenInSingle = true
-
-[params.editPost]
-URL = ""
-Text = ""
-appendFilePath = true
-
-[params.fuseOpts]
-isCaseSensitive = false
-shouldSort = true
-location = 0
-distance = 1000
-threshold = 0.4
-minMatchCharLength = 0
-keys = ["title", "permalink", "summary", "content"]
-
-[[menu.main]]
-identifier = "home"
-name = "Home"
-url = "/"
-weight = 10
-
-[[menu.main]]
-identifier = "blog"
-name = "Blog"
-url = "/blog/"
-weight = 20
-
-[[menu.main]]
-identifier = "about"
-name = "About"
-url = "/about/"
-weight = 30
-
+# Content configuration
 [markup]
-[markup.goldmark]
-[markup.goldmark.renderer]
-unsafe = true
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
 
-[markup.highlight]
-noClasses = false
-# anchorLineNos = true
-# codeFences = true
-# guessSyntax = true
-# lineNos = true
-# style = 'github'
+# Pagination
+[params.pagination]
+  paginatePages = 10

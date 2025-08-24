@@ -1,11 +1,17 @@
----
-title: "Home"
----
++++
+title = "Moritz Lumetsberger"
+date = '2025-08-24T09:23:38-03:00'
+draft = false
++++
 
-Welcome to my corner of the internet! I'm Moritz Lumetsberger, an entrepreneur who loves starting things and exploring bold ideas.
+# Welcome to My Personal Website
 
-I co-founded **[rendersnek](https://rendersnek.com)**, a 3D animation studio creating FOOH and DOOH content for global brands, and launched **[FOOH.com](https://FOOH.com)**, the largest curated archive of commercial Fake Out Of Home & CGI campaigns.
+I'm Moritz Lumetsberger, a passionate professional sharing insights through my blog and showcasing my work.
 
-When I'm not building, I'm experimenting—vibecoding with AI tools, automating creative workflows, or sharing what I've learned through my blog and talks.
+## About Me
 
-Curiosity, creativity, and connection drive everything I do.
+I enjoy exploring new technologies, sharing knowledge, and connecting with like-minded individuals in the tech community.
+
+## Latest Posts
+
+Check out my [blog](/blog/) for my latest thoughts and insights.
