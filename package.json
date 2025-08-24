@@ -6,6 +6,7 @@
     "dev": "concurrently \"hugo server --buildDrafts --buildFuture --disableFastRender\" \"npm run css:watch\"",
     "build": "npm run css:build && hugo --minify",
     "css:build": "tailwindcss -i ./assets/css/main.css -o ./assets/css/style.css --minify",
+    "css:build:purge": "tailwindcss -i ./assets/css/main.css -o ./assets/css/style.css --minify",
     "css:watch": "tailwindcss -i ./assets/css/main.css -o ./assets/css/style.css --watch",
     "preview": "hugo server --environment production --disableFastRender"
   },

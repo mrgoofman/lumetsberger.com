@@ -46,7 +46,7 @@ enableEmoji = true
   
   # Images and favicons
   favicon = "/favicon.ico"
-  logo = "/images/logo.png"
+  logo = "/icon.jpg"
 
 # Menu configuration
 [menu]
