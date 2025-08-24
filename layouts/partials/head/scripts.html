@@ -1,0 +1,40 @@
+{{/* Dark mode toggle script - must be in head to prevent FOUC */}}
+<script>
+  // Dark mode functionality
+  (function() {
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const isSystemDarkMode = darkModeMediaQuery.matches;
+    const systemPreference = isSystemDarkMode ? 'dark' : 'light';
+    
+    let preference = localStorage.getItem('theme') || 'system';
+    
+    if (preference === 'dark' || (preference === 'system' && isSystemDarkMode)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    
+    // Update the theme when system preference changes
+    darkModeMediaQuery.addEventListener('change', (e) => {
+      if (localStorage.getItem('theme') === 'system') {
+        if (e.matches) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      }
+    });
+  })();
+</script>
+
+{{/* Analytics - only in production */}}
+{{ if and hugo.IsProduction .Site.Params.googleAnalytics }}
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.googleAnalytics }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ .Site.Params.googleAnalytics }}');
+  </script>
+{{ end }}

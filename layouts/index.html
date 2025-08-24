@@ -1,0 +1,258 @@
+{{ define "main" }}
+<div class="min-h-screen">
+  {{/* Hero Section */}}
+  <section class="relative py-20 md:py-32 bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 overflow-hidden">
+    {{/* Background decoration */}}
+    <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
+    
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        {{/* Hero Content */}}
+        <div class="text-center lg:text-left">
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-gray-100 mb-8 leading-tight">
+            I'm <span class="bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">Moritz</span>
+          </h1>
+          
+          <div class="text-2xl md:text-3xl text-gray-600 dark:text-gray-400 mb-8">
+            <span id="typewriter" class="font-medium">Speaker.</span>
+            <span class="opacity-50">|</span>
+          </div>
+          
+          <p class="text-xl text-gray-600 dark:text-gray-400 mb-12 leading-relaxed">
+            I love starting things, exploring bold ideas, and sharing what I learn.
+          </p>
+          
+          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <a href="#connect" class="btn btn-primary">
+              Connect
+              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+            <a href="/blog/" class="btn btn-secondary">
+              Blog
+            </a>
+          </div>
+        </div>
+        
+        {{/* Hero Image */}}
+        <div class="relative">
+          <div class="aspect-w-1 aspect-h-1 rounded-2xl overflow-hidden shadow-2xl">
+            <img src="/images/profiles/Moritz-lumetsberger-3.jpg" 
+                 alt="Moritz Lumetsberger" 
+                 class="w-full h-full object-cover">
+          </div>
+          {{/* Decorative elements */}}
+          <div class="absolute -top-4 -right-4 w-24 h-24 bg-primary-100 dark:bg-primary-900 rounded-full opacity-50"></div>
+          <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-secondary-100 dark:bg-secondary-900 rounded-full opacity-50"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{/* Current Focus Section */}}
+  <section class="py-20 bg-white dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+          My Current Focus
+        </h2>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {{/* rendersnek */}}
+        <div class="card group">
+          <div class="flex items-start space-x-4 mb-4">
+            <div class="w-12 h-12 outline outline-2 outline-primary-500 rounded-lg flex items-center justify-center">
+              <span class="font-bold text-2xl">🛠️</span>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">
+                <a href="https://rendersnek.com" target="_blank" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200">
+                  rendersnek
+                </a>
+              </h3>
+              <p class="text-sm font-medium text-primary-600 dark:text-primary-400 uppercase tracking-wide mb-1.5">
+                Co-Founder & Managing Director
+              </p>
+            </div>
+          </div>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Creative studio for 3D animation, FOOH, and DOOH videos. We work with global brands to create stunning visual content that blurs the line between reality and imagination.
+          </p>
+        </div>
+        
+        {{/* FOOH.com */}}
+        <div class="card group">
+          <div class="flex items-start space-x-4 mb-4">
+            <div class="w-12 h-12 outline outline-2 outline-secondary-500 rounded-lg flex items-center justify-center">
+              <span class="font-bold text-2xl">🎬</span>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">
+                <a href="https://FOOH.com" target="_blank" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200">
+                  FOOH.com
+                </a>
+              </h3>
+              <p class="text-sm font-medium text-primary-600 dark:text-primary-400 uppercase tracking-wide mb-1.5">
+                Co-Founder & Managing Director
+              </p>
+            </div>
+          </div>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            The biggest library of commercial FOOH & CGI work. A curated collection of the most impressive Fake Out Of Home campaigns from around the world.
+          </p>
+        </div>
+        
+        {{/* Speaker */}}
+        <div class="card group">
+          <div class="flex items-start space-x-4 mb-4">
+            <div class="w-12 h-12 outline outline-2 outline-primary-500 rounded-lg flex items-center justify-center">
+              <span class="font-bold text-2xl">🎤</span>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">
+                Speaker
+              </h3>
+              <p class="text-sm font-medium text-primary-600 dark:text-primary-400 uppercase tracking-wide mb-1.5">
+                Creativity & Entrepreneurship
+              </p>
+            </div>
+          </div>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            I occasionally talk about creativity, entrepreneurship, and new media at conferences and workshops.
+          </p>
+        </div>
+        
+        {{/* AI Enthusiast */}}
+        <div class="card group">
+          <div class="flex items-start space-x-4 mb-4">
+            <div class="w-12 h-12 outline outline-2 outline-secondary-500 rounded-lg flex items-center justify-center">
+              <span class="font-bold text-2xl">🤖</span>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">
+                AI Enthusiast
+              </h3>
+              <p class="text-sm font-medium text-primary-600 dark:text-primary-400 uppercase tracking-wide mb-1.5">
+                Innovation & Automation
+              </p>
+            </div>
+          </div>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Testing ideas, building tools, automating workflows, and sharing the results. Always exploring how AI can enhance creative processes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{/* Latest Blog Posts */}}
+  {{ with (where site.RegularPages "Section" "blog") }}
+    {{ if gt (len .) 0 }}
+      <section class="py-20 bg-gray-50 dark:bg-gray-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+              Latest Thoughts
+            </h2>
+            <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+              Insights on entrepreneurship, AI automation, and building better systems.
+            </p>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {{ range first 3 . }}
+              <article class="card group">
+                {{/* Featured Image */}}
+                {{ with .Params.featured_image }}
+                  <div class="mb-4 -mx-6 -mt-6">
+                    <img src="{{ . }}" 
+                         alt="{{ $.Title }}"
+                         class="w-full h-48 object-cover rounded-t-xl">
+                  </div>
+                {{ end }}
+                
+                {{/* Meta */}}
+                <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-3">
+                  <time datetime="{{ .Date.Format "2006-01-02" }}">
+                    {{ .Date.Format "Jan 2, 2006" }}
+                  </time>
+                  <span class="mx-2">•</span>
+                  <span>{{ .ReadingTime }} min read</span>
+                </div>
+                
+                {{/* Title */}}
+                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-200">
+                  <a href="{{ .RelPermalink }}">
+                    {{ .Title }}
+                  </a>
+                </h3>
+                
+                {{/* Summary */}}
+                <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+                  {{ .Summary | truncate 150 }}
+                </p>
+                
+                {{/* Read More */}}
+                <a href="{{ .RelPermalink }}" 
+                   class="inline-flex items-center text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium group-hover:underline transition-colors duration-200">
+                  Read more
+                  <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </a>
+              </article>
+            {{ end }}
+          </div>
+          
+          <div class="text-center mt-12">
+            <a href="/blog/" class="btn btn-primary">
+              View All Posts
+              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+    {{ end }}
+  {{ end }}
+
+  {{/* Contact/Connect Section */}}
+  <section id="connect" class="py-20 bg-white dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+        Let's Connect
+      </h2>
+      <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-12">
+        Interested in collaborating, have a project in mind, or just want to say hello? I'd love to hear from you.
+      </p>
+      
+      {{/* Calendar Embed */}}
+      <!-- Cal inline embed code begins -->
+      <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline-ideas-side-projects"></div>
+      <script type="text/javascript">
+        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+      Cal("init", "ideas-side-projects", {origin:"https://app.cal.com"});
+
+        Cal.ns["ideas-side-projects"]("inline", {
+          elementOrSelector:"#my-cal-inline-ideas-side-projects",
+          config: {"layout":"month_view"},
+          calLink: "rendersnek/ideas-side-projects",
+        });
+
+        Cal.ns["ideas-side-projects"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+        </script>
+      <!-- Cal inline embed code ends -->
+    </div>
+  </section>
+</div>
+
+<style>
+  .bg-grid-pattern {
+    background-image: radial-gradient(circle, rgba(0,0,0,0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+</style>
+{{ end }}

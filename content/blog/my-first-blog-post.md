@@ -4,8 +4,6 @@ date: "2025-01-15"
 excerpt: "I'm late to the blogging party, but I'm here now. Thoughts on entrepreneurship, AI, and connecting with like-minded builders who want to create something cool together."
 ---
 
-# Here Goes: My Very First Personal Blog Post
-
 Some might say I'm late to the blogging party—and they're probably right. But honestly, I've always felt more comfortable writing than speaking into a camera (even though that's probably what I should be doing).
 
 Anyway, in this blog, I'll be sharing thoughts on entrepreneurship, AI, and all the random things that float around in my head 24/7.

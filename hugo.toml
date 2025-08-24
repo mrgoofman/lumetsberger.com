@@ -1,61 +1,129 @@
+# Hugo Configuration - Best Practices Setup
 baseURL = 'https://lumetsberger.com'
 languageCode = 'en-us'
+defaultContentLanguage = 'en'
 title = 'Moritz Lumetsberger'
-theme = 'PaperMod'
 
+# Build settings
+enableRobotsTXT = true
+enableGitInfo = false
+enableEmoji = true
+
+# Pagination
+[pagination]
+  pagerSize = 10
+
+# Output formats
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  page = ["HTML"]
+  section = ["HTML", "RSS"]
+
+# Taxonomies
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  series = "series"
+
+# Site parameters
 [params]
-  # Site info
-  description = "Personal website and blog of Moritz Lumetsberger"
+  description = "Building innovative solutions while sharing insights on entrepreneurship, AI, and creative workflows"
   author = "Moritz Lumetsberger"
+  email = "moritz@lumetsberger.com"
   
-  # Profile mode configuration
-  [params.profileMode]
-    enabled = true
-    title = "Moritz Lumetsberger"
-    subtitle = "Personal website and blog"
+  # Social media
+  linkedin = "https://linkedin.com/in/moritz-lumetsberger"
+  twitter = "https://x.com/mo_snek"
+  github = "https://github.com/mrgoofman"
   
-  # Social links
-  [[params.socialIcons]]
-    name = "linkedin"
-    title = "LinkedIn"
-    url = "https://linkedin.com/in/lumetsberger"
+  # Site settings
+  dateFormat = "January 2, 2006"
+  readingTime = true
+  wordCount = true
   
-  [[params.socialIcons]]
-    name = "x"
-    title = "X"  
-    url = "https://x.com/mo_snek"
+  # SEO and Analytics
+  googleAnalytics = ""
   
-  [[params.socialIcons]]
-    name = "email"
-    title = "Email"
-    url = "mailto:moritz@lumetsberger.com"
+  # Images and favicons
+  favicon = "/favicon.ico"
+  logo = "/images/logo.png"
 
 # Menu configuration
 [menu]
   [[menu.main]]
-    identifier = "home"
     name = "Home"
     url = "/"
     weight = 10
   
   [[menu.main]]
-    identifier = "about" 
     name = "About"
     url = "/about/"
     weight = 20
   
   [[menu.main]]
-    identifier = "blog"
     name = "Blog"
     url = "/blog/"
     weight = 30
 
-# Content configuration
+# Markup configuration
 [markup]
   [markup.goldmark]
-    [markup.goldmark.renderer]
+    [markup.renderer]
       unsafe = true
+    [markup.parser]
+      autoHeadingID = true
+      autoHeadingIDType = "github"
+  
+  [markup.highlight]
+    style = "github"
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = false
+    codeFences = true
+    guessSyntax = true
+    hl_Lines = ""
+    hl_inline = false
+    anchorLineNos = false
+    lineAnchors = ""
+    tabWidth = 4
 
-# Pagination
-[params.pagination]
-  paginatePages = 10
+# Privacy configuration
+[privacy]
+  [privacy.disqus]
+    disable = true
+  [privacy.googleAnalytics]
+    disable = false
+    anonymizeIP = true
+    respectDoNotTrack = true
+  [privacy.instagram]
+    disable = false
+    simple = true
+  [privacy.x]
+    disable = false
+    enableDNT = true
+    simple = true
+  [privacy.vimeo]
+    disable = false
+    enableDNT = true
+    simple = true
+  [privacy.youtube]
+    disable = false
+    privacyEnhanced = true
+
+# Security configuration
+[security]
+  [security.exec]
+    allow = ['^(dart-)?sass(-embedded)?$', '^go$', '^npx$', '^postcss$', '^git$']
+  [security.funcs]
+    getenv = ['^HUGO_', '^CI$']
+
+# Development server configuration
+[server]
+  [[server.headers]]
+    for = "/**"
+    [server.headers.values]
+      X-Frame-Options = "DENY"
+      X-XSS-Protection = "1; mode=block"
+      X-Content-Type-Options = "nosniff"
+      Referrer-Policy = "strict-origin-when-cross-origin"
+      Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://app.cal.com; style-src 'self' 'unsafe-inline' https://app.cal.com; connect-src 'self' https://app.cal.com; frame-src https://app.cal.com; img-src 'self' data: https:;"

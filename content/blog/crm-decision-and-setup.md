@@ -4,8 +4,6 @@ date: "2025-07-11"
 excerpt: "When a company grows and you're suddenly responsible for everything, at some point you'll hit a wall. Here's how I chose and set up our CRM system using ChatGPT as my consultant."
 ---
 
-# Deciding on a CRM and Actually Setting It Up (Founder POV)
-
 When a company grows and you're suddenly responsible for *everything*, at some point you'll hit a wall. That's exactly what just happened to me.
 
 I couldn't keep track of all past client conversations and new opportunities anymore. My Gmail inbox had become the messy center of client communication. I was using "Tasks" in Gmail to remind me of follow-ups, and I had a self-built Notion "CRM" (which no one except me ever used) full of scattered notes.

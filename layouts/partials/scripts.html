@@ -1,0 +1,177 @@
+{{/* Main JavaScript functionality */}}
+<script>
+  // Dark mode toggle functionality
+  function initThemeToggle() {
+    const toggleButton = document.getElementById('theme-toggle');
+    const mobileToggleButton = document.getElementById('mobile-theme-toggle');
+    
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.contains('dark');
+      const newTheme = isDark ? 'light' : 'dark';
+      
+      if (newTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+      
+      localStorage.setItem('theme', newTheme);
+    }
+    
+    if (toggleButton) {
+      toggleButton.addEventListener('click', toggleTheme);
+    }
+    
+    if (mobileToggleButton) {
+      mobileToggleButton.addEventListener('click', toggleTheme);
+    }
+  }
+  
+  // Mobile menu functionality
+  function initMobileMenu() {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', function() {
+        const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+        const newState = !isExpanded;
+        
+        // Toggle menu visibility
+        mobileMenu.classList.toggle('hidden', !newState);
+        
+        // Update button aria-expanded state
+        mobileMenuButton.setAttribute('aria-expanded', newState);
+        
+        // Toggle hamburger/close icon
+        const hamburgerIcon = mobileMenuButton.querySelector('svg:first-child');
+        const closeIcon = mobileMenuButton.querySelector('svg:last-child');
+        
+        hamburgerIcon.classList.toggle('hidden', newState);
+        hamburgerIcon.classList.toggle('block', !newState);
+        closeIcon.classList.toggle('hidden', !newState);
+        closeIcon.classList.toggle('block', newState);
+      });
+      
+      // Close mobile menu when clicking on a link
+      mobileMenu.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') {
+          mobileMenu.classList.add('hidden');
+          mobileMenuButton.setAttribute('aria-expanded', 'false');
+          
+          // Reset icons
+          const hamburgerIcon = mobileMenuButton.querySelector('svg:first-child');
+          const closeIcon = mobileMenuButton.querySelector('svg:last-child');
+          
+          hamburgerIcon.classList.remove('hidden');
+          hamburgerIcon.classList.add('block');
+          closeIcon.classList.add('hidden');
+          closeIcon.classList.remove('block');
+        }
+      });
+    }
+  }
+  
+  // Smooth scrolling for anchor links
+  function initSmoothScrolling() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        
+        e.preventDefault();
+        const target = document.querySelector(href);
+        
+        if (target) {
+          const headerOffset = 80; // Account for sticky header
+          const elementPosition = target.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  }
+  
+  // Add animation classes when elements come into view
+  function initScrollAnimations() {
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in-up');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+    
+    animatedElements.forEach(el => observer.observe(el));
+  }
+  
+  // Typewriter animation functionality
+  function initTypewriter() {
+    const typewriterElement = document.getElementById('typewriter');
+    if (!typewriterElement) return;
+    
+    const words = ['Speaker.', 'Vibecoder.', 'Entrepreneur.', 'Builder.'];
+    let currentWordIndex = 0;
+    let currentCharIndex = 0;
+    let isDeleting = false;
+    let isPaused = false;
+    
+    function typeWord() {
+      const currentWord = words[currentWordIndex];
+      
+      if (isDeleting) {
+        // Remove character
+        typewriterElement.textContent = currentWord.substring(0, currentCharIndex - 1);
+        currentCharIndex--;
+        
+        if (currentCharIndex === 0) {
+          isDeleting = false;
+          currentWordIndex = (currentWordIndex + 1) % words.length;
+          setTimeout(typeWord, 200); // Pause before typing next word
+          return;
+        }
+      } else {
+        // Add character
+        typewriterElement.textContent = currentWord.substring(0, currentCharIndex + 1);
+        currentCharIndex++;
+        
+        if (currentCharIndex === currentWord.length) {
+          isDeleting = true;
+          setTimeout(typeWord, 2000); // Pause at end of word
+          return;
+        }
+      }
+      
+      // Typing speed: faster when deleting, varied when typing
+      const speed = isDeleting ? 50 : Math.random() * 100 + 100;
+      setTimeout(typeWord, speed);
+    }
+    
+    // Start the typewriter effect
+    setTimeout(typeWord, 500);
+  }
+  
+  // Initialize all functionality when DOM is loaded
+  document.addEventListener('DOMContentLoaded', function() {
+    initThemeToggle();
+    initMobileMenu();
+    initSmoothScrolling();
+    initScrollAnimations();
+    initTypewriter();
+  });
+</script>
+
+{{/* Additional scripts for production */}}
+{{ if hugo.IsProduction }}
+  {{/* Performance monitoring or other production scripts can go here */}}
+{{ end }}

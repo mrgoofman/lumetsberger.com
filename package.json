@@ -1,0 +1,28 @@
+{
+  "name": "lumetsberger-com",
+  "version": "1.0.0",
+  "description": "Moritz Lumetsberger's personal website built with Hugo and Tailwind CSS",
+  "scripts": {
+    "dev": "concurrently \"hugo server --buildDrafts --buildFuture --disableFastRender\" \"npm run css:watch\"",
+    "build": "npm run css:build && hugo --minify",
+    "css:build": "tailwindcss -i ./assets/css/main.css -o ./assets/css/style.css --minify",
+    "css:watch": "tailwindcss -i ./assets/css/main.css -o ./assets/css/style.css --watch",
+    "preview": "hugo server --environment production --disableFastRender"
+  },
+  "keywords": [
+    "hugo",
+    "tailwindcss",
+    "personal-website",
+    "blog"
+  ],
+  "author": "Moritz Lumetsberger",
+  "license": "MIT",
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.13",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "tailwindcss": "^3.4.4",
+    "concurrently": "^8.2.2",
+    "autoprefixer": "^10.4.19"
+  }
+}

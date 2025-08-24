@@ -1,0 +1,14 @@
+{{/* Tailwind CSS */}}
+{{ $css := resources.Get "css/style.css" }}
+{{ if $css }}
+  {{ if hugo.IsProduction }}
+    {{ $css = $css | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
+  {{ else }}
+    <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+  {{ end }}
+{{ end }}
+
+{{/* Preconnect to external domains for performance */}}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

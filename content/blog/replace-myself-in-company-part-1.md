@@ -4,8 +4,6 @@ date: "2025-08-22"
 excerpt: "How I'm building a simple app to track and categorize my daily business tasks, so I can finally delegate operations and focus on growing the company instead of drowning in endless operational work."
 ---
 
-# How to Replace Myself in My Company – Part 1
-
 This is a question I've asked myself many times already. Not because I want to stop working altogether like the Instagram gurus preach, but because I want to spend more time working on the company instead of in it—buried under endless operational tasks.
 
 Now, don't get me wrong. Operations have their beauty. You just execute, no big thinking required (once you've figured out your business), and at the end of the day you get that little hit of accomplishment. Sometimes they're even fulfilling for me. But when they repeat too often, I get bored—very bored. My **entrepreneurial brain** gets restless. I need to create, to try things, to experiment. I don't want to get stuck in operations. That's just not how I'm wired.
