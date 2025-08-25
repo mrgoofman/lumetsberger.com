@@ -271,40 +271,44 @@
     grid-column: span 1;
   }
   
-  /* Image Slider Styles - Improved for mobile */
+  /* Image Slider Styles - Fixed for proper mobile behavior */
   .image-slider {
     position: relative;
     width: 100%;
+    max-width: 100%;
   }
   
   .slider-track {
     display: flex;
+    width: 500%; /* 5 slides * 100% each */
     transition: transform 0.5s ease-in-out;
     animation: autoSlide 15s infinite;
   }
   
   .slider-slide {
-    min-width: 100%;
+    width: 20%; /* Each slide takes 1/5 of the track (100% / 5) */
     flex-shrink: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0 1rem; /* Add some spacing */
   }
   
   .slider-image {
-    width: 90%;
-    max-width: 100%;
+    width: 100%;
+    max-width: 320px; /* Limit max size on mobile */
+    height: auto;
   }
   
   @media (min-width: 640px) {
     .slider-image {
-      width: 80%;
+      max-width: 400px;
     }
   }
   
   @media (min-width: 768px) {
     .slider-image {
-      width: 70%;
+      max-width: 500px;
     }
   }
   
@@ -317,11 +321,11 @@
   }
   
   @keyframes autoSlide {
-    0%, 18% { transform: translateX(0%); }
-    20%, 38% { transform: translateX(-100%); }
-    40%, 58% { transform: translateX(-200%); }
-    60%, 78% { transform: translateX(-300%); }
-    80%, 98% { transform: translateX(-400%); }
+    0%, 16% { transform: translateX(0%); }
+    20%, 36% { transform: translateX(-20%); }
+    40%, 56% { transform: translateX(-40%); }
+    60%, 76% { transform: translateX(-60%); }
+    80%, 96% { transform: translateX(-80%); }
     100% { transform: translateX(0%); }
   }
   
@@ -355,7 +359,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Go to specific slide
     function goToSlide(slideIndex) {
       currentSlide = slideIndex;
-      track.style.transform = `translateX(-${slideIndex * 100}%)`;
+      track.style.transform = `translateX(-${slideIndex * 20}%)`;
       updateDots();
     }
     
@@ -380,11 +384,11 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!isManualControl) {
         const animationProgress = (Date.now() % 15000) / 15000; // 15s cycle
         
-        if (animationProgress < 0.18) currentSlide = 0;
-        else if (animationProgress < 0.38) currentSlide = 1;
-        else if (animationProgress < 0.58) currentSlide = 2;
-        else if (animationProgress < 0.78) currentSlide = 3;
-        else if (animationProgress < 0.98) currentSlide = 4;
+        if (animationProgress < 0.16) currentSlide = 0;
+        else if (animationProgress < 0.36) currentSlide = 1;
+        else if (animationProgress < 0.56) currentSlide = 2;
+        else if (animationProgress < 0.76) currentSlide = 3;
+        else if (animationProgress < 0.96) currentSlide = 4;
         else currentSlide = 0;
         
         updateDots();
