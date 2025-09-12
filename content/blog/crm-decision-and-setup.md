@@ -6,9 +6,9 @@ excerpt: "When a company grows and you're suddenly responsible for everything, a
 
 When a company grows and you're suddenly responsible for *everything*, at some point you'll hit a wall. That's exactly what just happened to me.
 
-I couldn't keep track of all past client conversations and new opportunities anymore. My Gmail inbox had become the messy center of client communication. I was using "Tasks" in Gmail to remind me of follow-ups, and I had a self-built Notion "CRM" (which no one except me ever used) full of scattered notes.
+I couldn't keep track of all past client conversations and new opportunities anymore. My Gmail inbox had become the messy center of client communication. I was using "Tasks" in Gmail to remind me of follow-ups, and I had a self-built Notion "CRM" which no one except me ever used.
 
-In short: I constantly had the feeling there was *so much potential* if only I had a proper system—a real CRM.
+In short: I constantly had the feeling there was *so much potential* if only I had a proper system - a real CRM.
 
 ## Where Do You Even Start With a CRM?
 
@@ -20,7 +20,7 @@ So I did the classic thing: I asked my newest best buddy ChatGPT. I literally ty
 
 And honestly? That approach was *incredible*.
 
-It didn't require me to know *anything* about CRMs upfront. ChatGPT basically became a personal CRM consultant—asking smart, tailored questions that helped me understand what *we* actually need in a system.
+It didn't require me to know *anything* about CRMs upfront. ChatGPT basically became a personal CRM consultant. Asking me smart, tailored questions that helped understand what *we* as company actually need in a system.
 
 ## Shortlist: Streak, Close, and Zoho
 
@@ -48,12 +48,12 @@ Once all three tools were connected to Gmail, it became obvious: [Close.com](htt
   It suggested leads and contacts based on existing conversations. I could pick and choose who to import into the CRM.
   
 - **Granular filter options.**  
-  Way more flexibility than the others. You can build custom views for whatever: new leads, past clients, job applicants—you name it.
+  Way more flexibility than the others. You can build custom views for whatever: new leads, past clients, job applicants, filter by number of written emails last contact, and and and.
 
-- **It's just intuitive.**  
+- **Intuitive and simple.**  
   No need to fight the system or dig through complicated menus.
 
-## What I Wanted as a Founder and One-Person Sales Team
+## What I Wanted as a Founder and currently One-Person Sales Team
 
 Here's what I personally needed from a CRM:
 
@@ -69,7 +69,7 @@ Here's what I personally needed from a CRM:
     (super useful if I ever bring someone else into sales)
 
 - The ability to do personalized *and* mass outreach:
-  - Christmas videos
+  - Christmas mails
   - Updates to past customers
   - Launches of new projects
 
@@ -78,17 +78,15 @@ Here's what I personally needed from a CRM:
   - What action is needed next
   - Automated reminders if a lead has gone cold
 
-## Sales Stages? Also Built With ChatGPT
+- A system that scales:
+  - Easy to understand for new keyaccount and sales peoples
+  - All information i none place - best for future ai features
+  - Loads of integrations with other SaaS products.
 
-Yup. I went back to ChatGPT again and asked:
-
-> "Can you ask me questions to figure out what sales stages we should use based on our structure and past experience?"
-
-Then I validated the suggestions, tweaked them a bit, and implemented them into Close.
 
 ## Where We Are Now
 
-I'm currently building all my custom views in Close—and I can *already* see how easy it'll be to hand things over to someone else. The structure is there. It scales. I'm no longer losing track of leads.
+Things just work. Follow-Ups don't fall through anymore. We got an amazing overview of our past and current clients, of our partners and suppliers and evene applicants. Honestly without it, we'd have a really hard time.
 
 ## My Takeaway: Don't Start With CRMs. Start With Questions.
 
@@ -102,6 +100,7 @@ Before trying any CRM, ask yourself:
 - And then?
 - And then?
 - What happens after that?
+- Does this CRM (need to) scale?
 - [Seriously—follow your mental process all the way through.]
 
 And of course, **ask ChatGPT like you would a CRM consultant.**  
