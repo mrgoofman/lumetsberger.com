@@ -67,6 +67,6 @@ And of course I had to get a domain and code a landing page for the application.
 
 P.S.: The whole thing turned out pretty neat, and I'm already getting insights into where my time actually goes (spoiler alert: way too much admin work). If you're dealing with similar delegation struggles or just curious about the app, head over there and see if it might help you too.
 
-Update 12. September 2025:
+**Update 12. September 2025:**
 I'm still using the tool every day (and sometimes it really annoys me). BUT it always reminds me to think of what I'm doing right now, and this helps me be present while working and structure my day.
 I did add a couple of new features that I thought would add to better usability, but didn't have the chance to publish them yet.
