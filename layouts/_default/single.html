@@ -125,9 +125,9 @@
     </div>
 
 
-    {{/* Navigation to Newer/Older Posts */}}
+    {{/* Navigation to Newer/Older Posts within Blog Section */}}
     <nav class="flex items-center justify-between py-8">
-      {{ with .Prev }}
+      {{ with .PrevInSection }}
         <a href="{{ .RelPermalink }}"
            class="flex-1 flex items-center group text-left">
           <svg class="mr-3 w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transform group-hover:-translate-x-1 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -142,7 +142,7 @@
         <div class="flex-1"></div>
       {{ end }}
 
-      {{ with .Next }}
+      {{ with .NextInSection }}
         <a href="{{ .RelPermalink }}"
            class="flex-1 flex items-center justify-end group text-right">
           <div>
