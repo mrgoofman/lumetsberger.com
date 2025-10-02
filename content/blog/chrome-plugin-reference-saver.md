@@ -4,8 +4,6 @@ date: "2025-10-02"
 excerpt: "Learn how I built a custom Chrome extension in 2 hours to solve reference chaos across Instagram, YouTube, and LinkedIn. From Firebase integration to team collaboration - a complete breakdown of building productivity tools that actually work."
 ---
 
-# From Chaos to Clarity: How I Built a Chrome Plugin to Save References (in Just 2 Hours)
-
 Do you know that moment when you remember a specific reference you need for a pitch, or to show to someone — but no matter how hard you dig, you can't find it? I've had this countless times. A few weeks ago it happened again, and I decided enough was enough. That was the spark for my new vibecode project.
 
 Everyone knows the chaos of saving references. No matter which platform you're on — Instagram, LinkedIn, Pinterest, YouTube — the "Save" functionality usually sends things into a black hole of folders you'll never revisit.
@@ -26,7 +24,7 @@ We needed something simple, fast, and collaborative. Existing solutions were eit
 
 I'd never built a Chrome plugin before, but within 2 hours I had a working version.
 
-![Chrome Plugin Interface](save-reference-chrome-plugin.jpeg)
+![Chrome Plugin Interface](/images/save-reference-chrome-plugin.jpeg)
 
 My quick analysis gave me a starting point:
 
