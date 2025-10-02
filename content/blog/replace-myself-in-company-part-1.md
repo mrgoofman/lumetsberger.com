@@ -6,13 +6,14 @@ excerpt: "How I'm building a simple app to track and categorize my daily busines
 
 This is a question I've asked myself many times already. Not because I want to stop working altogether like the Instagram gurus preach, but because I want to spend more time working on the company instead of in it—buried under endless operational tasks.
 
-Now, don't get me wrong. Operations have their beauty. You just execute, no big thinking required (once you've figured out your business), and at the end of the day you get that little hit of accomplishment. Sometimes they're even fulfilling for me. But when they repeat too often, I get bored—very bored. My **entrepreneurial brain** gets restless. I need to create, to try things, to experiment. I don't want to get stuck in operations. That's just not how I'm wired.
+Now, don't get me wrong. Operations have their beauty. You execute, most tasks don't require the biggest brainpower anymore, because you've done them countless times and at the end of the day you get that little "hit of accomplishment". This hit can be really fulfilling, but I personally am not a fan of repetition unless we're talking health routines. 
+My **entrepreneurial brain** gets restless. I need to create, try things and experiment to get inspiration.
 
 ⸻
 
 ## Asking for Help with Business Delegation
 
-One evening I decided to tackle this issue again and asked Claude the following:
+One evening I decided to tackle this issue again and asked one of my trusted coaches Claude the following:
 
 > "I'm trying to get myself out of many operating tasks in the business, so I can focus on developing the business further.
 > Can you help frame a plan that I can execute to get there?"
@@ -34,7 +35,7 @@ I liked the approach. But I also knew I'd struggle sticking to it, because I'm b
 
 So I asked myself: How can I make it efficient to log all these things I'm doing?
 
-And then it clicked—this could be a new **vibecoding side project**. A simple **productivity app** that helps me with the assessment phase.
+And then it clicked. This could be a new **vibecoding side project**. A simple **productivity app** that helps me with the assessment phase.
 
 Here's how it works:
 
@@ -62,6 +63,10 @@ This gives me a **comprehensive database** of everything I'm doing—classified 
 
 ![Task Logger Analytics Dashboard](/images/blog/task-logger-analytics.png)
 
-And of course I had to get a domain and code a landing page for the application—because what's a side project without proper branding, right? Check out more details and try it yourself at **[switchlogger.com](https://switchlogger.com)**. 
+And of course I had to get a domain and code a landing page for the application. Because what's a side project without proper branding, right? Check out more details and try it yourself at **[switchlogger.com](https://switchlogger.com)**. 
 
-The whole thing turned out pretty neat, and I'm already getting insights into where my time actually goes (spoiler alert: way too much admin work). If you're dealing with similar delegation struggles or just curious about the app, head over there and see if it might help you too.
+P.S.: The whole thing turned out pretty neat, and I'm already getting insights into where my time actually goes (spoiler alert: way too much admin work). If you're dealing with similar delegation struggles or just curious about the app, head over there and see if it might help you too.
+
+**Update 12. September 2025:**
+I'm still using the tool every day (and sometimes it really annoys me). BUT it always reminds me to think of what I'm doing right now, and this helps me be present while working and structure my day.
+I did add a couple of new features that I thought would add to better usability, but didn't have the chance to publish them yet.
