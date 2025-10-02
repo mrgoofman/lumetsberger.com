@@ -30,7 +30,7 @@ My quick analysis gave me a starting point:
 
 That pointed to a Chrome plugin.
 
-![Chrome Plugin Interface](/images/save-reference-chrome-plugin.jpeg)
+![Chrome Plugin Interface](/images/blog/save-reference-chrome-plugin.jpeg)
 
 Next, I listed the information I wanted to capture:
 
