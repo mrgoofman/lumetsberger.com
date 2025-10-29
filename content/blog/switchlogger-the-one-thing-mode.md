@@ -1,7 +1,7 @@
 ---
-title: "From Task Tracking to Focus: Introducing 'The One Thing' Mode in SwitchLogger"
+title: "How to Replace Myself in My Company – Part 2: Realizing Task Tracking might not be my best way."
 date: "2025-10-29"
-excerpt: "After weeks of successful task logging, I discovered the real challenge wasn't tracking everything—it was identifying what matters most. Here's how I evolved SwitchLogger to focus on the one thing that makes everything else easier."
+excerpt: "I built a task tracker that worked perfectly for weeks—until I started unconsciously clicking it away. Turns out logging everything was the problem, not the solution. Here's how one book changed my entire approach."
 ---
 
 For 2-3 weeks the switchlogger worked really well. I reflected on all tasks I did and I got an indication whether I worked on or in the business. It was interesting to see and it was also easy to use. But then (who would've guessed) I started to learn the behaviour of clicking the pop up away and eventually stopped logging.
