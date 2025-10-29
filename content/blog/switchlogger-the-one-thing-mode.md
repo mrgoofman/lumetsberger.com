@@ -4,9 +4,11 @@ date: "2025-10-29"
 excerpt: "I built a task tracker that worked perfectly for weeks—until I started unconsciously clicking it away. Turns out logging everything was the problem, not the solution. Here's how one book changed my entire approach."
 ---
 
-For 2-3 weeks the switchlogger worked really well. I reflected on all tasks I did and I got an indication whether I worked on or in the business. It was interesting to see and it was also easy to use. But then (who would've guessed) I started to learn the behaviour of clicking the pop up away and eventually stopped logging.
+I built a task tracker that worked perfectly for weeks—until I started unconsciously clicking it away. Turns out logging everything was the problem, not the solution. Here's how one book changed my entire approach.
 
-I can't quite pinpoint why I stop using it. But I guess I was trying to focus on logging everything (consciously) instead of focusing on the one thing that has the most impact.
+In [Part 1 of this series](/blog/replace-myself-in-company-part-1/), I built SwitchLogger to track every task I did, categorizing whether I was working on or in the business. For 2-3 weeks it worked really well—I got valuable insights and the interface was easy to use. But then I started developing the habit of clicking the popup away and eventually stopped logging altogether.
+
+I can't quite pinpoint why I stopped using it. But I guess I was trying to focus on logging everything (consciously) instead of focusing on the one thing that has the most impact.
 
 "The one thing" is key here, because I started reading the book "The One Thing" by Gary Keller, which inspired me to try a slightly different approach with the switchlogger.
 
