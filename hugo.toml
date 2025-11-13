@@ -42,7 +42,7 @@ enableEmoji = true
   wordCount = true
   
   # SEO and Analytics
-  googleAnalytics = ""
+  googleAnalytics = "G-7WZS5M1WY6"
   
   # Images and favicons
   favicon = "/favicon.ico"
@@ -126,4 +126,4 @@ enableEmoji = true
       X-XSS-Protection = "1; mode=block"
       X-Content-Type-Options = "nosniff"
       Referrer-Policy = "strict-origin-when-cross-origin"
-      Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://app.cal.com; style-src 'self' 'unsafe-inline' https://app.cal.com; connect-src 'self' https://app.cal.com; frame-src https://app.cal.com; img-src 'self' data: https:;"
+      Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://app.cal.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://app.cal.com; connect-src 'self' https://app.cal.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com; frame-src https://app.cal.com; img-src 'self' data: https:;"
