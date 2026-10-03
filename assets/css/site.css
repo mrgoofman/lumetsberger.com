@@ -305,6 +305,112 @@ img { max-width: 100%; }
 .chroma .lntable { border-spacing: 0; }
 .chroma .lntd { padding: 0; vertical-align: top; border: 0; }
 
+/* ── Phones (below the 900px breakpoint) ──────────── */
+
+/* Phone-only pieces stay hidden on desktop */
+.brand-short, .burger, .sheet, .panel .go { display: none; }
+
+@media (max-width: 899px) {
+  /* Header: "ML" + menu button, in the flow and pinned while scrolling */
+  .nav { position: sticky; z-index: 60; padding: 14px 16px; background: rgba(11, 11, 11, .7); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); transition: background .3s; }
+  .nav nav, .brand-full { display: none; }
+  .brand-short { display: inline; font-size: 26px; }
+  .burger { all: unset; cursor: pointer; width: 44px; height: 44px; flex: none; display: grid; place-content: center; gap: 7px; }
+  .burger:focus-visible { outline: 2px solid var(--hot); outline-offset: 3px; }
+  .burger i { display: block; width: 26px; height: 2px; background: var(--fg); transition: transform .35s; }
+
+  /* Menu sheet grows out of the burger */
+  .sheet {
+    position: fixed; z-index: 55; inset: 0;
+    display: flex; flex-direction: column; justify-content: center; padding: 0 16px;
+    background: var(--hot); color: var(--ink);
+    visibility: hidden; clip-path: circle(0 at calc(100% - 38px) 36px);
+    transition: clip-path .6s cubic-bezier(.7, 0, .2, 1), visibility 0s .6s;
+  }
+  .sheet nav { display: flex; flex-direction: column; }
+  .sheet nav a { font-size: 21vw; line-height: .95; transform: translateY(40px); opacity: 0; transition: transform .5s calc(.25s + var(--i) * .06s), opacity .5s calc(.25s + var(--i) * .06s); }
+  .sheet nav a.hot { -webkit-text-stroke: 2px var(--ink); color: transparent; }
+  .sheet :focus-visible { outline-color: var(--ink); }
+  .sheet-soc { display: flex; gap: 20px; margin-top: 40px; font-size: 14px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+  .menu-open body { overflow: hidden; }
+  .menu-open .nav { background: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .menu-open .brand-short { color: var(--ink); }
+  .menu-open .burger i { background: var(--ink); }
+  .menu-open .burger i:first-child { transform: translateY(4.5px) rotate(45deg); }
+  .menu-open .burger i:last-child { transform: translateY(-4.5px) rotate(-45deg); }
+  .menu-open .sheet { visibility: visible; clip-path: circle(150% at calc(100% - 38px) 36px); transition: clip-path .6s cubic-bezier(.7, 0, .2, 1); }
+  .menu-open .sheet nav a { transform: none; opacity: 1; }
+
+  /* Hero: avatar beside name + typewriter, statement one phrase per line */
+  .hero { min-height: 0; }
+  .hero-in { padding: 48px 16px 8px; }
+  .hero .id { display: grid; grid-template-columns: auto 1fr; gap: 0 12px; margin-bottom: 28px; font-size: 16px; }
+  .hero .ava { grid-row: span 2; width: 56px; height: 56px; padding: 2px; border: 2px solid var(--hot); }
+  .hero .id h1 { align-self: end; font-weight: 600; }
+  .hero .dash { display: none; }
+  .hero .tw { align-self: start; font-size: 12px; }
+  .hero .statement { margin: 0; font-size: 15.5vw; line-height: .86; }
+  .hero .statement span { display: block; animation: rise .8s cubic-bezier(.2, .7, .2, 1) both; }
+  .hero .statement em { display: inline; }
+  .hero .statement span:nth-child(2) { animation-delay: .07s; }
+  .hero .statement span:nth-child(3) { animation-delay: .14s; }
+  .hero .statement span:nth-child(4) { animation-delay: .21s; }
+  .hero .statement span:nth-child(5) { animation-delay: .28s; }
+  .hero .statement span:nth-child(6) { animation-delay: .35s; }
+  .hero .statement span:nth-child(7) { animation-delay: .42s; }
+  .hero-in > .btn { display: none; }
+
+  /* Clients: the same moving belt with phone-sized logos */
+  .clients { padding: 40px 0 8px; }
+  .clients .kicker { padding: 0 16px 8px; }
+  .belt { gap: 32px; animation-duration: 30s; }
+  .logos img { width: 80px; height: 80px; }
+  .logos .logo-icon { height: 34px; margin: 0 8px; }
+  .logos .logo-wordmark { height: 22px; margin: 0 8px; }
+  .logos .logo-purina { height: 28px; margin: 0 4px; }
+
+  /* "My Current Focus": cards stick and stack over each other (site.js dims the covered ones) */
+  .reel { padding: 56px 12px 0; }
+  .reel h2 { padding: 0; margin: 0 4px 24px; line-height: .9; }
+  .panel { position: sticky; top: calc(84px + var(--i) * 14px); height: 68svh; min-height: 460px; margin-bottom: 18svh; transform-origin: center top; border: 1px solid var(--line); border-radius: 18px; background: #161616; box-shadow: 0 -20px 40px rgba(0, 0, 0, .6); }
+  .panel:last-child { margin-bottom: 0; }
+  .panel > img { transform: none; }
+  .panel::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(11, 11, 11, .95) 10%, rgba(11, 11, 11, .2) 60%, transparent); }
+  .wall { inset: -10% -20%; grid-template-columns: repeat(3, 1fr); }
+  .wall .col:nth-child(n+4) { display: none; }
+  .stack { animation-duration: 60s; }
+  .wall .col:nth-child(even) .stack { animation-duration: 70s; }
+  .stack img { border-radius: 6px; filter: brightness(.6); }
+  .shade { display: none; }
+  .panel .cap { z-index: 1; left: 20px; right: 20px; bottom: 22px; display: grid; grid-template-columns: auto 1fr; }
+  .panel .cap > * { grid-column: 1 / -1; }
+  .panel .n, .panel .role { grid-row: 1; grid-column: auto; margin: 0; font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--hot); }
+  .panel .n .of { display: none; }
+  .panel .role::before { content: "\00a0— "; }
+  .panel h3 { margin: 10px 0 12px; font-size: 12.5vw; overflow-wrap: anywhere; }
+  .panel p { font-size: 15px; line-height: 1.5; }
+  .panel p.tag { font-size: 20px; margin-bottom: 8px; }
+  .panel .go { display: inline-block; justify-self: start; margin-top: 16px; padding: 12px 18px; border-radius: 999px; background: var(--fg); color: var(--ink); font-size: 13px; font-weight: 600; }
+
+  /* Latest Thoughts and post lists: date + reading time above a compact title */
+  .latest { padding: 64px 16px 32px; }
+  .latest > h2 { font-size: 48px; margin-bottom: 20px; }
+  .latest > .sub { display: none; }
+  .latest > .btn { display: block; margin: 0; padding: 18px 0; border: 0; color: var(--hot); font-size: 16px; letter-spacing: 0; text-transform: none; }
+  .latest > .btn:hover { background: none; color: var(--hot); }
+  .post { gap: 8px; padding: 20px 0; }
+  .post .meta { font-size: 12px; }
+  .post h3 { font-size: 21px; line-height: 1.2; letter-spacing: -.01em; }
+  .post:hover h3 { transform: none; }
+  .post:active h3 { color: var(--hot); }
+
+  .connect h2 { font-size: 22vw; }
+
+  /* The header is in the flow now, so subpages need less room above their heading */
+  .ab-hero, .bl-hero, .ar { padding-top: 48px; }
+}
+@keyframes rise { from { opacity: 0; transform: translateY(60%); } }
+
 /* ── Motion preferences ───────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {

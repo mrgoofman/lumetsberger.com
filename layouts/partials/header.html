@@ -1,8 +1,24 @@
 <header class="nav">
-  <a href="{{ "/" | relURL }}" class="brand">{{ site.Title }}</a>
+  <a href="{{ "/" | relURL }}" class="brand"><span class="brand-full">{{ site.Title }}</span><span class="brand-short disp" aria-hidden="true">ML</span></a>
   <nav aria-label="Main">
     {{- range site.Menus.main }}
       <a href="{{ .URL }}"{{ if or (eq .URL $.RelPermalink) (and (ne .URL "/") (hasPrefix $.RelPermalink .URL)) }} aria-current="page"{{ end }}>{{ .Name }}</a>
     {{- end }}
   </nav>
+  <button type="button" class="burger" aria-label="Menu" aria-expanded="false" aria-controls="sheet" data-menu><i></i><i></i></button>
 </header>
+
+{{/* Phone menu: a full-screen sheet opened by the burger (below 900px only). */}}
+<div class="sheet" id="sheet">
+  <nav aria-label="Menu">
+    {{- range $i, $m := site.Menus.main }}
+      <a href="{{ $m.URL }}" class="disp" style="--i:{{ $i }}">{{ $m.Name }}</a>
+    {{- end }}
+    <a href="/#connect" class="disp hot" style="--i:{{ len site.Menus.main }}">Connect</a>
+  </nav>
+  <div class="sheet-soc">
+    {{ with site.Params.linkedin }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>{{ end }}
+    {{ with site.Params.instagram }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">Instagram</a>{{ end }}
+    {{ with site.Params.twitter }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">X</a>{{ end }}
+  </div>
+</div>

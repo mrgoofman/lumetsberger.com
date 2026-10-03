@@ -23,9 +23,25 @@
     var track = reel.querySelector('[data-track]');
     var prog = reel.querySelector('[data-prog]');
     var wide = matchMedia('(min-width: 900px)');
+    var panels = [].slice.call(track.children);
+
+    // Phones: the cards stick and stack; each one shrinks and dims as the next covers it.
+    function stack() {
+      panels.forEach(function (p, i) {
+        var next = panels[i + 1];
+        var t = 0;
+        if (next && !reduceMotion) {
+          var gap = next.getBoundingClientRect().top - p.getBoundingClientRect().top;
+          t = Math.max(0, Math.min(1, 1 - gap / innerHeight));
+        }
+        p.style.transform = t ? 'scale(' + (1 - t * 0.08) + ')' : '';
+        p.style.filter = t ? 'brightness(' + (1 - t * 0.5) + ')' : '';
+      });
+    }
 
     function update() {
-      if (!wide.matches) { track.style.transform = ''; return; }
+      if (!wide.matches) { track.style.transform = ''; stack(); return; }
+      panels.forEach(function (p) { p.style.transform = p.style.filter = ''; });
       var r = reel.getBoundingClientRect();
       var t = Math.min(1, Math.max(0, -r.top / (r.height - innerHeight)));
       track.style.transform = 'translateX(' + (-t * (track.scrollWidth - innerWidth)) + 'px)';
@@ -54,6 +70,25 @@
     setTimeout(tick, 2000);
   }
 
+  // Phone menu sheet (the burger only shows below 900px).
+  function initMenu() {
+    var btn = document.querySelector('[data-menu]');
+    if (!btn) return;
+    var root = document.documentElement;
+    function set(open) {
+      root.classList.toggle('menu-open', open);
+      btn.setAttribute('aria-expanded', open);
+    }
+    btn.addEventListener('click', function () { set(!root.classList.contains('menu-open')); });
+    document.querySelectorAll('.sheet a').forEach(function (a) {
+      a.addEventListener('click', function () { set(false); });
+    });
+    addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && root.classList.contains('menu-open')) { set(false); btn.focus(); }
+    });
+    matchMedia('(min-width: 900px)').addEventListener('change', function (e) { if (e.matches) set(false); });
+  }
+
   // The contact address is never in the HTML: it ships as two base64 halves, joined on click.
   function initMail() {
     document.querySelectorAll('[data-mail-user]').forEach(function (a) {
@@ -67,5 +102,6 @@
   initReveal();
   initReel();
   initTypewriter();
+  initMenu();
   initMail();
 })();

@@ -14,7 +14,8 @@
       <span class="dash" aria-hidden="true"></span>
       <span class="tw"><span data-typewriter>Speaker.</span></span>
     </div>
-    <p class="statement disp">I love <em>starting</em> things, <em>exploring</em> bold ideas, and <em>sharing</em> what I learn.</p>
+    {{/* One phrase per span: inline on desktop, stacked one per line on phones. */}}
+    <p class="statement disp"><span>I love</span> <span><em>starting</em></span> <span>things,</span> <span><em>exploring</em></span> <span>bold ideas,</span> <span>and <em>sharing</em></span> <span>what I learn.</span></p>
     <a class="btn btn-hot" href="#connect">Connect →</a>
   </div>
 
@@ -35,7 +36,7 @@
     <h2 class="disp">My Current Focus</h2>
     <div class="track" data-track>
       {{ range $i, $f := $focus }}
-        <article class="panel">
+        <article class="panel" style="--i:{{ $i }}">
           {{ if $f.wall }}
             {{ with $wall }}<div class="wall" aria-hidden="true">
               {{ range $c := seq 0 11 }}
@@ -50,11 +51,12 @@
             <img src="{{ $f.image }}" alt="" loading="lazy">
           {{ end }}
           <div class="cap">
-            <div class="n">{{ printf "%02d" (add $i 1) }} / {{ printf "%02d" (len $focus) }}</div>
+            <div class="n">{{ printf "%02d" (add $i 1) }}<span class="of"> / {{ printf "%02d" (len $focus) }}</span></div>
             <h3 class="disp">{{ with $f.url }}<a href="{{ . }}" target="_blank" rel="noopener">{{ $f.title }}</a>{{ else }}{{ $f.title }}{{ end }}</h3>
             <div class="role">{{ $f.role }}</div>
             {{ with $f.tagline }}<p class="tag">{{ . }}</p>{{ end }}
             <p>{{ $f.desc }}</p>
+            {{ with $f.url }}<a class="go" href="{{ . }}" target="_blank" rel="noopener">Visit ↗</a>{{ end }}
           </div>
         </article>
       {{ end }}
@@ -64,7 +66,7 @@
 </section>
 
 {{ with $posts }}
-  <section class="sect">
+  <section class="sect latest">
     <h2 class="disp" data-reveal>Latest Thoughts</h2>
     <p class="sub" data-reveal>Insights on entrepreneurship, AI automation, and building better systems.</p>
     <div class="posts">
