@@ -8,22 +8,14 @@ title = 'Moritz Lumetsberger'
 enableRobotsTXT = true
 enableGitInfo = false
 enableEmoji = true
-
-# Pagination
-[pagination]
-  pagerSize = 10
+# No taxonomies are used, so skip the empty /tags/ and /categories/ pages
+disableKinds = ["taxonomy", "term"]
 
 # Output formats
 [outputs]
   home = ["HTML", "RSS", "JSON"]
   page = ["HTML"]
   section = ["HTML", "RSS"]
-
-# Taxonomies
-[taxonomies]
-  tag = "tags"
-  category = "categories"
-  series = "series"
 
 # Site parameters
 [params]
@@ -34,20 +26,10 @@ enableEmoji = true
   # Social media
   linkedin = "https://linkedin.com/in/moritz-lumetsberger"
   twitter = "https://x.com/mo_snek"
-  github = "https://github.com/mrgoofman"
   instagram = "https://www.instagram.com/moritz.lum/"
-  
-  # Site settings
-  dateFormat = "January 2, 2006"
-  readingTime = true
-  wordCount = true
   
   # SEO and Analytics
   googleAnalytics = "G-7WZS5M1WY6"
-  
-  # Images and favicons
-  favicon = "/favicon.ico"
-  logo = "/icon.jpg"
 
 # Menu configuration
 [menu]
@@ -69,8 +51,6 @@ enableEmoji = true
 # Markup configuration
 [markup]
   [markup.goldmark]
-    [markup.renderer]
-      unsafe = true
     [markup.parser]
       autoHeadingID = true
       autoHeadingIDType = "github"
@@ -87,36 +67,6 @@ enableEmoji = true
     anchorLineNos = false
     lineAnchors = ""
     tabWidth = 4
-
-# Privacy configuration
-[privacy]
-  [privacy.disqus]
-    disable = true
-  [privacy.googleAnalytics]
-    disable = false
-    anonymizeIP = true
-    respectDoNotTrack = true
-  [privacy.instagram]
-    disable = false
-    simple = true
-  [privacy.x]
-    disable = false
-    enableDNT = true
-    simple = true
-  [privacy.vimeo]
-    disable = false
-    enableDNT = true
-    simple = true
-  [privacy.youtube]
-    disable = false
-    privacyEnhanced = true
-
-# Security configuration
-[security]
-  [security.exec]
-    allow = ['^(dart-)?sass(-embedded)?$', '^go$', '^npx$', '^postcss$', '^git$']
-  [security.funcs]
-    getenv = ['^HUGO_', '^CI$']
 
 # Development server configuration
 [server]

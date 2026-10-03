@@ -5,8 +5,7 @@ Personal website and blog for Moritz Lumetsberger built with Hugo and hand-writt
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Hugo Extended v0.148.2+ 
-- Node.js and npm
+- Hugo Extended v0.148.2+
 - Git
 
 ### Development
@@ -15,13 +14,7 @@ Personal website and blog for Moritz Lumetsberger built with Hugo and hand-writt
 git clone https://github.com/mrgoofman/lumetsberger.com.git
 cd lumetsberger.com
 
-# Install dependencies
-npm install
-
-# Start development server (runs Hugo + Tailwind CSS watch)
-npm run dev
-
-# Alternative: Run Hugo server only
+# Start development server
 hugo server --buildDrafts --buildFuture --disableFastRender
 ```
 
@@ -38,14 +31,12 @@ title: "Your Post Title"
 date: 2024-01-01T10:00:00Z
 draft: false
 description: "Brief description for SEO"
-tags: ["tag1", "tag2"]
-categories: ["category"]
 ---
 ```
 
 ### Images
 - Profile images: `static/images/profiles/`
-- Gallery images: `static/images/gallery/`
+- "My Current Focus" backdrops: `static/images/gallery/`
 - Blog post images: `static/images/blog/`
 
 **Image Guidelines:**
@@ -75,25 +66,18 @@ categories: ["category"]
 ### Key Features
 - **Responsive Design:** Mobile-first approach with custom breakpoints
 - **Cal.com Integration:** Embedded calendar with CSP configuration
-- **Masonry Gallery:** Desktop grid layout with mobile slider fallback
+- **Scroll-driven reel:** "My Current Focus" panels scroll horizontally on wide screens
 - **Typewriter Animation:** Homepage hero text animation
 - **Performance Optimized:** Font preloading, lazy loading, minified assets
 - **SEO Ready:** Automatic sitemap, robots.txt, meta tags
 - **Dark only:** no theme toggle
 - **Spam-safe email:** the footer email link is assembled on click; the address never appears in the HTML
 
-### Custom Components
-- **Cards:** Hover effects with shadow and border transitions
-- **Image Slider:** Auto-playing gallery with manual controls
-- **Responsive Grid:** Progressive layout (1→2→3 columns)
-
-### Scripts
+### Commands
 ```bash
-npm run dev        # Development with Hugo + Tailwind watch
-npm run build      # Production build with minification
-npm run css:build  # Build Tailwind CSS only
-npm run css:watch  # Watch Tailwind CSS changes
-npm run preview    # Preview production build
+hugo server                                     # Development
+hugo --gc --minify                              # Production build
+hugo server --environment production            # Preview production build
 ```
 
 ## 🚢 Deployment
@@ -104,7 +88,7 @@ The site automatically deploys to GitHub Pages when you push to the `main` branc
 ### Manual Deployment
 ```bash
 # Build the site
-npm run build
+hugo --gc --minify
 
 # Deploy (handled automatically by GitHub Actions)
 ```
@@ -134,7 +118,6 @@ Key settings:
 - **Fonts:** Anton (display), Inter Tight (text), JetBrains Mono (code), via Google Fonts
 - **Colors:** CSS custom properties at the top of `assets/css/site.css` (accent `--hot: #ff5a1f`)
 - **Optimization:** minified and fingerprinted in production by Hugo Pipes
-- The old Tailwind toolchain (`assets/css/main.css`, `style.css`, `tailwind.config.js`, npm scripts) is no longer used by any layout
 
 ### Content Security Policy
 Configured to allow Cal.com integration while maintaining security:
@@ -146,7 +129,7 @@ Configured to allow Cal.com integration while maintaining security:
 
 ### Optimizations Implemented
 - **Font Loading:** Preload with fallbacks
-- **CSS:** Minified and purged in production
+- **CSS:** Minified in production
 - **Images:** Lazy loading with proper alt text
 - **JavaScript:** Async loading for Cal.com integration
 - **HTML:** Minified in production builds
@@ -188,15 +171,12 @@ Ready for Google Analytics integration via `hugo.toml` configuration.
 ## 🚨 Troubleshooting
 
 ### Common Issues
-1. **CSS not updating:** Run `npm run css:build`
-2. **Images not loading:** Check file paths and extensions
-3. **Cal.com not working:** Verify CSP configuration
-4. **Build failing:** Check Hugo version compatibility
+1. **Images not loading:** Check file paths and extensions
+2. **Cal.com not working:** Verify CSP configuration
+3. **Build failing:** Check Hugo version compatibility
 
 ### Development Tips
-- Use `hugo server` for basic development
-- Use `npm run dev` when modifying CSS
-- Clear browser cache for CSS changes
+- Use `hugo server` for development (it live-reloads CSS and JS)
 - Check console for JavaScript errors
 
 ## 📄 License

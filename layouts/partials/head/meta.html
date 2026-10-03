@@ -23,12 +23,8 @@
 {{/* Canonical URL */}}
 <link rel="canonical" href="{{ .Permalink }}">
 
-{{/* Favicon and Touch Icons */}}
-<link rel="icon" type="image/x-icon" href="{{ .Site.Params.favicon | default "/favicon.ico" }}">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
+{{/* Favicon */}}
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
 
 {{/* Open Graph / Facebook */}}
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
@@ -65,13 +61,6 @@
   "@type": "{{ if .IsHome }}WebSite{{ else if .IsPage }}BlogPosting{{ else }}WebPage{{ end }}",
   "name": "{{ .Site.Title }}",
   "url": "{{ .Site.BaseURL }}",
-  {{- if .IsHome }}
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "{{ .Site.BaseURL }}search?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  },
-  {{- end }}
   {{- if .IsPage }}
   "headline": "{{ .Title }}",
   "author": {
