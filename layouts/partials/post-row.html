@@ -1,0 +1,10 @@
+{{- /* One row in a post list. Context: dict "page" (a blog page) and "summary" (bool, show the excerpt). */ -}}
+{{- with .page }}
+<a class="post" href="{{ .RelPermalink }}" data-reveal>
+  <div class="meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time> · {{ .ReadingTime }} min read</div>
+  <div>
+    <h3>{{ .Title }}</h3>
+    {{ if $.summary }}<p class="sum">{{ .Summary | plainify | truncate 200 }}</p>{{ end }}
+  </div>
+</a>
+{{- end }}

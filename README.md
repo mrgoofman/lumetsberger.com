@@ -1,6 +1,6 @@
 # Lumetsberger.com
 
-Personal website and blog for Moritz Lumetsberger built with Hugo and Tailwind CSS.
+Personal website and blog for Moritz Lumetsberger built with Hugo and hand-written CSS ("Showreel" design, dark only).
 
 ## 🚀 Quick Start
 
@@ -51,19 +51,24 @@ categories: ["category"]
 **Image Guidelines:**
 - Use WebP format when possible for better performance
 - Optimize images before uploading
-- Blog images are automatically styled to 50% width and centered
+- Blog images are centered and capped at the text width
+- FOOH.com wall thumbnails: `static/images/fooh-wall/` (every file there is shown; curate by adding/removing files)
+- Client logos: `static/images/clients/`, listed in `data/clients.toml`
 - Use descriptive alt text for accessibility
 
 ### Pages
 - Homepage: `layouts/index.html`
-- About page: `layouts/about/single.html`
-- Blog layout: `layouts/_default/single.html`
+- About page: `layouts/_default/about.html` (copy in `content/about/index.md`, selected via `layout = 'about'`)
+- Blog list: `layouts/_default/list.html`
+- Blog post: `layouts/_default/single.html`
+- Shared chrome: `layouts/partials/header.html`, `footer.html`, `connect.html` (Let's Connect + Cal.com)
+- "My Current Focus" panels: `data/focus.toml`
 
 ## 🛠 Technical Details
 
 ### Architecture
 - **Static Site Generator:** Hugo v0.148.2
-- **CSS Framework:** Tailwind CSS v3.4.4
+- **CSS:** `assets/css/site.css` (no framework); behaviour in `assets/js/site.js`
 - **Deployment:** GitHub Pages with GitHub Actions
 - **Domain:** lumetsberger.com (custom domain)
 
@@ -74,7 +79,8 @@ categories: ["category"]
 - **Typewriter Animation:** Homepage hero text animation
 - **Performance Optimized:** Font preloading, lazy loading, minified assets
 - **SEO Ready:** Automatic sitemap, robots.txt, meta tags
-- **Dark Mode:** System-preference aware dark mode support
+- **Dark only:** no theme toggle
+- **Spam-safe email:** the footer email link is assembled on click; the address never appears in the HTML
 
 ### Custom Components
 - **Cards:** Hover effects with shadow and border transitions
@@ -124,11 +130,11 @@ Key settings:
 - **Build:** Robots.txt enabled, RSS feeds enabled
 - **Security:** CSP headers configured for Cal.com integration
 
-### Tailwind Configuration
-- **Fonts:** Inter (sans-serif), JetBrains Mono (monospace)
-- **Colors:** Custom primary/secondary color scheme
-- **Plugins:** Typography, Forms, Aspect Ratio
-- **Optimization:** Purged unused CSS in production
+### Styling
+- **Fonts:** Anton (display), Inter Tight (text), JetBrains Mono (code), via Google Fonts
+- **Colors:** CSS custom properties at the top of `assets/css/site.css` (accent `--hot: #ff5a1f`)
+- **Optimization:** minified and fingerprinted in production by Hugo Pipes
+- The old Tailwind toolchain (`assets/css/main.css`, `style.css`, `tailwind.config.js`, npm scripts) is no longer used by any layout
 
 ### Content Security Policy
 Configured to allow Cal.com integration while maintaining security:
@@ -156,11 +162,11 @@ Configured to allow Cal.com integration while maintaining security:
 ### Adding New Sections
 1. Create layout in `layouts/partials/`
 2. Include in main templates
-3. Add corresponding Tailwind classes
+3. Add styles to `assets/css/site.css`
 4. Test responsive behavior
 
 ### Modifying Colors
-Update `tailwind.config.js` color palette and rebuild CSS.
+Edit the custom properties in `:root` at the top of `assets/css/site.css`.
 
 ### Adding New Content Types
 1. Create archetype in `archetypes/`

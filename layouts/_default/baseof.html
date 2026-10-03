@@ -1,21 +1,23 @@
 <!DOCTYPE html>
-<html lang="{{ or site.Language.Lang site.Language.LanguageCode }}" class="h-full">
+<html lang="{{ or site.Language.Lang site.Language.LanguageCode }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0b0b0b">
+
   {{- partial "head/meta.html" . -}}
   {{- partial "head/styles.html" . -}}
   {{- partial "head/scripts.html" . -}}
 </head>
 
-<body class="h-full flex flex-col bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+<body>
   {{- partial "header.html" . -}}
-  
-  <main class="flex-1">
+
+  <main>
     {{- block "main" . }}{{- end }}
   </main>
-  
+
   {{- partial "footer.html" . -}}
   {{- partial "scripts.html" . -}}
 </body>

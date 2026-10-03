@@ -1,0 +1,78 @@
+# "Clients I worked with" logo carousel on the homepage.
+# style picks how a logo is tinted to sit on the dark background (see .logos in assets/css/site.css):
+#   icon     – single-colour Simple Icons SVG, inverted to white
+#   wordmark – wide wordmark, rendered small and white
+#   mono     – raster logo forced to flat white
+#   tinted   – raster logo kept greyscale (multi-colour marks)
+#   purina   – the Purina checkerboard, greyscale and a little shorter
+# Only add clients cleared for public mention; some past clients must never appear here.
+
+[[logos]]
+name = "McDonald's"
+file = "mcdonalds.svg"
+style = "icon"
+
+[[logos]]
+name = "Coca-Cola"
+file = "coca-cola.svg"
+style = "icon"
+
+[[logos]]
+name = "Volvo"
+file = "volvo.svg"
+style = "icon"
+
+[[logos]]
+name = "Lufthansa"
+file = "lufthansa.svg"
+style = "icon"
+
+[[logos]]
+name = "Eurowings"
+file = "eurowings.svg"
+style = "wordmark"
+
+[[logos]]
+name = "Purina"
+file = "purina.svg"
+style = "purina"
+
+[[logos]]
+name = "Red Bull Mobile"
+file = "red-bull-mobile.png"
+style = "mono"
+
+[[logos]]
+name = "Austrian Airlines"
+file = "austrian-airlines.png"
+style = "mono"
+
+[[logos]]
+name = "Discover Airlines"
+file = "discover-airlines.svg"
+style = "wordmark"
+
+[[logos]]
+name = "Dr. Oetker"
+file = "dr-oetker.png"
+style = "tinted"
+
+[[logos]]
+name = "Vapiano"
+file = "vapiano.png"
+style = "mono"
+
+[[logos]]
+name = "dm"
+file = "dm.png"
+style = "mono"
+
+[[logos]]
+name = "OBI"
+file = "obi.png"
+style = "tinted"
+
+[[logos]]
+name = "Wiener Staatsoper"
+file = "wiener-staatsoper.png"
+style = "mono"

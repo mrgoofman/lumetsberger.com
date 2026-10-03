@@ -1,0 +1,30 @@
+# "My Current Focus" reel on the homepage, one panel per entry.
+# image is the panel backdrop; the FOOH.com panel uses the work wall (static/images/fooh-wall/) instead.
+
+[[items]]
+title = "rendersnek"
+url = "https://rendersnek.com"
+role = "Co-Founder & Managing Director"
+desc = "Creative studio for 3D animation, FOOH, and DOOH videos. We work with global brands to create stunning visual content that blurs the line between reality and imagination."
+image = "/images/gallery/pic-6.jpg"
+
+[[items]]
+title = "FOOH.com"
+url = "https://FOOH.com"
+role = "Co-Founder & Managing Director"
+wall = true
+# Copy from fooh.com/about (Oct 2026)
+tagline = "The home of digital artists."
+desc = "FOOH.com is where digital work and its creators get the attention they deserve. We set out to be the place where digital artists get hired, awarded, inspired and seen."
+
+[[items]]
+title = "Speaker"
+role = "Creativity & Entrepreneurship"
+desc = "I occasionally talk about creativity, entrepreneurship, and new media at conferences and workshops."
+image = "/images/gallery/pic-5.jpg"
+
+[[items]]
+title = "AI Enthusiast"
+role = "Innovation & Automation"
+desc = "Testing ideas, building tools, automating workflows, and sharing the results. Always exploring how AI can enhance creative processes."
+image = "/images/gallery/pic-1.jpg"

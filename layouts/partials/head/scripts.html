@@ -1,31 +1,4 @@
-{{/* Dark mode toggle script - must be in head to prevent FOUC */}}
-<script>
-  // Dark mode functionality
-  (function() {
-    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    const isSystemDarkMode = darkModeMediaQuery.matches;
-    const systemPreference = isSystemDarkMode ? 'dark' : 'light';
-    
-    let preference = localStorage.getItem('theme') || 'system';
-    
-    if (preference === 'dark' || (preference === 'system' && isSystemDarkMode)) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-    
-    // Update the theme when system preference changes
-    darkModeMediaQuery.addEventListener('change', (e) => {
-      if (localStorage.getItem('theme') === 'system') {
-        if (e.matches) {
-          document.documentElement.classList.add('dark');
-        } else {
-          document.documentElement.classList.remove('dark');
-        }
-      }
-    });
-  })();
-</script>
+<script>document.documentElement.classList.add('js')</script>
 
 {{/* Analytics - only in production */}}
 {{ if and hugo.IsProduction .Site.Params.googleAnalytics }}
