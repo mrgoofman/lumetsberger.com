@@ -1,0 +1,14 @@
+{{- /* Builds the 1200×630 share card at build time: the title in Anton on the dark base, an optional subline, the domain at the bottom.
+       Context: dict "title", "sub" (optional) and "name" (file name, published at /images/og/<name>.png). Returns the image resource. */ -}}
+{{- $display := resources.Get "fonts/Anton-Regular.ttf" -}}
+{{- $mono := resources.Get "fonts/JetBrainsMono-Medium.ttf" -}}
+{{- $title := upper .title -}}
+{{- $size := cond (gt (len $title) 60) 72 (cond (gt (len $title) 32) 88 112) -}}
+{{- $filters := slice
+  (images.Text $title (dict "font" $display "color" "#f4f1ea" "size" $size "linespacing" 6 "x" 72 "y" 104))
+  (images.Text "LUMETSBERGER.COM" (dict "font" $mono "color" "#ff5a1f" "size" 30 "x" 72 "y" 540))
+-}}
+{{- with .sub }}{{ $filters = $filters | append (images.Text (upper .) (dict "font" $mono "color" "#9a968e" "size" 30 "x" 72 "y" 270)) }}{{ end -}}
+{{- $img := (resources.Get "images/og-base.png").Filter $filters -}}
+{{- $img = resources.Copy (printf "images/og/%s.png" .name) $img -}}
+{{- return $img -}}

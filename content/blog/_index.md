@@ -1,6 +1,8 @@
 +++
 title = 'Blog'
-date = '2025-08-24T09:23:39-03:00'
+metaTitle = 'Blog on Entrepreneurship, AI & Delegation | Moritz Lumetsberger'
+cardTitle = 'Blog on entrepreneurship, AI & building systems'
+description = 'Founder notes from Moritz Lumetsberger on entrepreneurship, AI tools, delegation and building simple systems for a creative studio.'
 draft = false
 +++
 

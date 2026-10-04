@@ -1,5 +1,6 @@
 +++
 title = "Moritz Lumetsberger"
-date = '2025-08-24T09:23:38-03:00'
+metaTitle = 'Moritz Lumetsberger – Entrepreneur & Founder of FOOH.com'
+description = 'Entrepreneur and speaker, co-founder of the 3D animation studio rendersnek and founder of FOOH.com. I write about entrepreneurship, AI and creative workflows.'
 draft = false
 +++

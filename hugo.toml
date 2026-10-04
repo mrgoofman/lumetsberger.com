@@ -1,6 +1,6 @@
 # Hugo Configuration - Best Practices Setup
 baseURL = 'https://lumetsberger.com'
-languageCode = 'en-us'
+languageCode = 'en-US'
 defaultContentLanguage = 'en'
 title = 'Moritz Lumetsberger'
 

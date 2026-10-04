@@ -1,0 +1,15 @@
+{{ define "main" }}
+<section class="bl-hero">
+  <h1 class="disp">Page not found</h1>
+  <div class="intro"><p>This page doesn't exist (anymore). Try the <a href="{{ "/" | relURL }}">homepage</a> or the <a href="{{ "/blog/" | relURL }}">blog</a>.</p></div>
+</section>
+
+{{ with first 3 (where site.RegularPages "Section" "blog") }}
+<section class="sect latest">
+  <h2 class="disp">Latest Thoughts</h2>
+  <div class="posts">
+    {{ range . }}{{ partial "post-row.html" (dict "page" . "summary" false) }}{{ end }}
+  </div>
+</section>
+{{ end }}
+{{ end }}

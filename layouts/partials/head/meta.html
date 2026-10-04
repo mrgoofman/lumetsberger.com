@@ -1,76 +1,154 @@
-{{/* Basic Meta Tags */}}
-<title>
-  {{- if .IsHome -}}
-    {{ .Site.Title }}
-  {{- else -}}
-    {{ .Title }} | {{ .Site.Title }}
-  {{- end -}}
-</title>
+{{- /* Every SEO tag for the page: title, description, canonical, robots, Open Graph, Twitter and JSON-LD.
+       Front matter can override the title tag with `metaTitle`; the description comes from `description`, then a post's `excerpt`, then its summary. */ -}}
+{{- $isPost := and .IsPage (eq .Section "blog") -}}
+{{- $is404 := eq .Kind "404" -}}
 
-<meta name="description" content="
-  {{- if .Description -}}
-    {{ .Description }}
-  {{- else if .IsPage -}}
-    {{ .Summary | truncate 155 }}
-  {{- else -}}
-    {{ .Site.Params.description }}
-  {{- end -}}
-">
+{{- /* Long post titles drop the name suffix so the title itself survives Google's ~60-character cut. */ -}}
+{{- $title := .Params.metaTitle -}}
+{{- if not $title -}}
+  {{- $title = cond (or .IsHome (gt (len .Title) 45)) .Title (printf "%s | %s" .Title site.Title) -}}
+{{- end -}}
 
-<meta name="author" content="{{ .Site.Params.author }}">
-<meta name="generator" content="Hugo {{ hugo.Version }}">
+{{- $desc := "" -}}
+{{- with .Description -}}{{ $desc = . }}{{- else with .Params.excerpt -}}{{ $desc = . }}{{- else -}}
+  {{- $desc = cond .IsPage (.Summary | plainify | htmlUnescape | truncate 155) site.Params.description -}}
+{{- end -}}
+{{- $desc = $desc | plainify | htmlUnescape | chomp -}}
 
-{{/* Canonical URL */}}
+{{- /* Share card: generated from the page title (headline for posts, the page's own name elsewhere). */ -}}
+{{- $cardTitle := cond .IsHome site.Title (cond $isPost .Title (.Params.cardTitle | default $title)) -}}
+{{- $cardName := cond .IsHome "home" (cond $is404 "404" (path.Base (strings.TrimSuffix "/" .RelPermalink))) -}}
+{{- $card := partial "seo/og-image.html" (dict "title" $cardTitle "sub" (cond .IsHome "Entrepreneur · Speaker · Founder of FOOH.com" "") "name" $cardName) -}}
+
+{{- /* First image in a post's body, used as an extra schema image. */ -}}
+{{- $bodyImage := "" -}}
+{{- with findRESubmatch `<img[^>]+src="([^"]+)"` .Content 1 -}}{{ $bodyImage = index (index . 0) 1 | absURL }}{{- end -}}
+
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $desc }}">
+<meta name="author" content="{{ site.Params.author }}">
+{{- if or $is404 (not hugo.IsProduction) }}
+<meta name="robots" content="noindex, follow">
+{{- else }}
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="canonical" href="{{ .Permalink }}">
+{{- end }}
 
-{{/* Favicon */}}
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/images/profiles/Moritz-lumetsberger-3.jpg">
 
-{{/* Open Graph / Facebook */}}
-<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
-<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
-<meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else if .IsPage }}{{ .Summary | truncate 155 }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+{{/* Open Graph */}}
+<meta property="og:type" content="{{ if $isPost }}article{{ else if eq .Layout "about" }}profile{{ else }}website{{ end }}">
+<meta property="og:title" content="{{ cond $isPost .Title $title }}">
+<meta property="og:description" content="{{ $desc }}">
 <meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:site_name" content="{{ .Site.Title }}">
-<meta property="og:locale" content="{{ .Site.Language.Lang }}">
-
-{{- if .IsPage }}
-<meta property="article:author" content="{{ .Site.Params.author }}">
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:locale" content="{{ replace site.LanguageCode "-" "_" }}">
+<meta property="og:image" content="{{ $card.Permalink }}">
+<meta property="og:image:type" content="{{ $card.MediaType.Type }}">
+<meta property="og:image:width" content="{{ $card.Width }}">
+<meta property="og:image:height" content="{{ $card.Height }}">
+<meta property="og:image:alt" content="{{ $cardTitle }}">
+{{- if $isPost }}
+<meta property="article:author" content="{{ "/about/" | absURL }}">
 <meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
 <meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">
+<meta property="article:section" content="Blog">
+{{- else if eq .Layout "about" }}
+{{- with split site.Params.author " " }}
+<meta property="profile:first_name" content="{{ index . 0 }}">
+<meta property="profile:last_name" content="{{ delimit (after 1 .) " " }}">
+{{- end }}
 {{- end }}
 
-{{/* Twitter Card */}}
+{{/* Twitter / X */}}
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
-<meta name="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else if .IsPage }}{{ .Summary | truncate 155 }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-{{- with .Site.Params.twitter }}
-<meta name="twitter:site" content="@{{ . }}">
-<meta name="twitter:creator" content="@{{ . }}">
+<meta name="twitter:title" content="{{ cond $isPost .Title $title }}">
+<meta name="twitter:description" content="{{ $desc }}">
+<meta name="twitter:image" content="{{ $card.Permalink }}">
+<meta name="twitter:image:alt" content="{{ $cardTitle }}">
+{{- with site.Params.twitter }}
+<meta name="twitter:site" content="@{{ path.Base . }}">
+<meta name="twitter:creator" content="@{{ path.Base . }}">
 {{- end }}
 
-{{/* RSS */}}
+{{/* Feeds */}}
 {{ with .OutputFormats.Get "rss" -}}
-  {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+<link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ site.Title }}">
+{{ end -}}
+{{ with site.Home.OutputFormats.Get "json" -}}
+<link rel="alternate" type="application/feed+json" href="{{ .Permalink }}" title="{{ site.Title }}">
 {{ end -}}
 
-{{/* JSON-LD Structured Data */}}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "{{ if .IsHome }}WebSite{{ else if .IsPage }}BlogPosting{{ else }}WebPage{{ end }}",
-  "name": "{{ .Site.Title }}",
-  "url": "{{ .Site.BaseURL }}",
-  {{- if .IsPage }}
-  "headline": "{{ .Title }}",
-  "author": {
-    "@type": "Person",
-    "name": "{{ .Site.Params.author }}"
-  },
-  "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
-  "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
-  "wordCount": {{ .WordCount }},
-  {{- end }}
-  "description": "{{ if .Description }}{{ .Description }}{{ else if .IsPage }}{{ .Summary | truncate 155 }}{{ else }}{{ .Site.Params.description }}{{ end }}"
-}
-</script>
+{{- /* JSON-LD: one @graph per page. The Person node is the site's entity and is repeated on every page so each graph stands alone. */ -}}
+{{- $home := site.Home.Permalink -}}
+{{- $personID := printf "%s#person" $home -}}
+{{- $websiteID := printf "%s#website" $home -}}
+{{- $blogID := printf "%s#blog" ("/blog/" | absURL) -}}
+{{- $sameAs := slice -}}
+{{- range slice site.Params.linkedin site.Params.instagram site.Params.twitter }}{{ with . }}{{ $sameAs = $sameAs | append . }}{{ end }}{{ end -}}
+{{- $worksFor := slice -}}
+{{- range site.Data.focus.items }}{{ if .url }}{{ $worksFor = $worksFor | append (dict "@type" "Organization" "name" .title "url" .url) }}{{ end }}{{ end -}}
+{{- $person := dict
+  "@type" "Person"
+  "@id" $personID
+  "name" site.Params.author
+  "url" $home
+  "image" ("/images/profiles/Moritz-lumetsberger-3.jpg" | absURL)
+  "jobTitle" "Entrepreneur"
+  "description" site.Params.description
+  "worksFor" $worksFor
+  "sameAs" $sameAs
+-}}
+{{- $website := dict
+  "@type" "WebSite"
+  "@id" $websiteID
+  "url" $home
+  "name" site.Title
+  "description" site.Params.description
+  "inLanguage" site.LanguageCode
+  "publisher" (dict "@id" $personID)
+-}}
+{{- $graph := slice $website $person -}}
+{{- $crumbs := slice (dict "@type" "ListItem" "position" 1 "name" "Home" "item" $home) -}}
+
+{{- if .IsHome -}}
+  {{- $graph = $graph | append (dict "@type" "WebPage" "@id" .Permalink "url" .Permalink "name" $title "description" $desc "isPartOf" (dict "@id" $websiteID) "about" (dict "@id" $personID) "inLanguage" site.LanguageCode) -}}
+{{- else if eq .Layout "about" -}}
+  {{- $graph = $graph | append (dict "@type" "ProfilePage" "@id" .Permalink "url" .Permalink "name" $title "description" $desc "isPartOf" (dict "@id" $websiteID) "mainEntity" (dict "@id" $personID) "inLanguage" site.LanguageCode) -}}
+  {{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" 2 "name" .Title "item" .Permalink) -}}
+{{- else if and (eq .Kind "section") (eq .Section "blog") -}}
+  {{- $posts := slice -}}
+  {{- range .Pages }}{{ $posts = $posts | append (dict "@type" "BlogPosting" "headline" .Title "url" .Permalink "datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00")) }}{{ end -}}
+  {{- $graph = $graph | append (dict "@type" "Blog" "@id" $blogID "url" .Permalink "name" $title "description" $desc "author" (dict "@id" $personID) "publisher" (dict "@id" $personID) "isPartOf" (dict "@id" $websiteID) "inLanguage" site.LanguageCode "blogPost" $posts) -}}
+  {{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" 2 "name" .Title "item" .Permalink) -}}
+{{- else if $isPost -}}
+  {{- $images := slice $card.Permalink -}}
+  {{- with $bodyImage }}{{ $images = $images | append . }}{{ end -}}
+  {{- $graph = $graph | append (dict
+    "@type" "BlogPosting"
+    "@id" (printf "%s#article" .Permalink)
+    "headline" (.Title | truncate 110 "…")
+    "description" $desc
+    "url" .Permalink
+    "mainEntityOfPage" .Permalink
+    "image" $images
+    "datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00")
+    "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00")
+    "author" (dict "@type" "Person" "@id" $personID "name" site.Params.author "url" ("/about/" | absURL))
+    "publisher" (dict "@id" $personID)
+    "isPartOf" (dict "@id" $blogID)
+    "wordCount" .WordCount
+    "timeRequired" (printf "PT%dM" .ReadingTime)
+    "inLanguage" site.LanguageCode
+  ) -}}
+  {{- with .Parent }}{{ $crumbs = $crumbs | append (dict "@type" "ListItem" "position" 2 "name" .Title "item" .Permalink) }}{{ end -}}
+  {{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" (add (len $crumbs) 1) "name" .Title "item" .Permalink) -}}
+{{- end -}}
+
+{{- if gt (len $crumbs) 1 -}}
+  {{- $graph = $graph | append (dict "@type" "BreadcrumbList" "itemListElement" $crumbs) -}}
+{{- end }}
+{{- if not $is404 }}
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@graph" $graph | jsonify | safeJS }}</script>
+{{- end }}
